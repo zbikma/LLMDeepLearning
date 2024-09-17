@@ -3,6 +3,7 @@ node_modules/
 
 # Ignore environment variables
 .env
+codegenagent/.env
 
 # Ignore log files
 *.log
