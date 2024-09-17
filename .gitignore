@@ -15,4 +15,5 @@ ai/
 .DS_Store
 
 myvenv/
-CodeGenAgent/ai/
+codegenagent/ai/
+.vscode
