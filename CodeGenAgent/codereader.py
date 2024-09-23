@@ -6,7 +6,7 @@ def code_reader_func(file_name):
         with open(path,"r")  as f:
             content = f.read()
             return {"file_content":content}
-    except exception as e:
+    except (FileNotFoundError, PermissionError, IOError) as e:
         return{"error":str(e)}
 
 code_reader = FunctionTool.from_defaults(
