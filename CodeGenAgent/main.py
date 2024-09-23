@@ -60,9 +60,11 @@ while (prompt := input("Enter a prompt (q to quit): ")) != "q":
             next_result = output_pipeline.run(response=result)
             cleaned_json = ast.literal_eval(str(next_result).replace("assistant:", ""))
             break
-        except Exception as e:
+        except (ValueError, SyntaxError, AttributeError) as e:
             retries += 1
-            print(f"Error occured, retry #{retries}:", e)
+            print(f"Error occurred, retry #{retries}: {e}")
+            if retries >= 3:
+                raise RuntimeError("Maximum retries reached") from e
 
     if retries >= 3:
         print("Unable to process request, try again...")
