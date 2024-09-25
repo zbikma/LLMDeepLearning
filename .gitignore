@@ -6,6 +6,7 @@ __pycache__/
 # Ignore environment variables
 .env
 codegenagent/.env
+CrewAi/.env
 ai/
 
 
