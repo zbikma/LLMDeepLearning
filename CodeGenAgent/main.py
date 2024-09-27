@@ -23,7 +23,7 @@ parser =LlamaParse(result_type="markdown")
 file_extractor = {".pdf": parser}
 documents = SimpleDirectoryReader("./data",file_extractor=file_extractor).load_data()
 
-# get access to a local model by default it will used chatgpt but we want to use our own local model
+# get access to a local model by default it will used chatgpt but we want to use our own local model for embedding
 embed_model =  resolve_embed_model("local:BAAI/bge-m3")
 # create the vector index from the document we want to be using as embdding, this index becomes like a question and answer bot that then return some result based on the pdf file and then use the llm to generate final result
 vector_index= VectorStoreIndex.from_documents(documents,embed_model=embed_model)
